@@ -58,9 +58,18 @@ export default function HomePage() {
       {/* Social proof bar */}
       <section className="bg-slate-50 border-y border-slate-200 py-4 px-6">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-slate-500 font-medium">
-          <span>✦ Built for independent fishing guides</span>
-          <span>✦ Works on iPhone, Android, and desktop</span>
-          <span>✦ Just $20/month — no contracts</span>
+          <span className="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Built for independent fishing guides
+          </span>
+          <span className="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            Works on iPhone, Android, and desktop
+          </span>
+          <span className="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Just $20/month — no contracts
+          </span>
         </div>
       </section>
 
@@ -70,18 +79,21 @@ export default function HomePage() {
           <h2 className="text-3xl sm:text-4xl font-black mb-4">Still running your guide business on spreadsheets and text messages?</h2>
           <p className="text-slate-400 text-lg mb-14 max-w-2xl mx-auto">Most fishing guides are leaving money on the table and spending hours on admin work that should take minutes.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: '💸', text: 'Chasing clients for payments after every trip' },
-              { icon: '🤔', text: 'Scrambling to remember fish counts and trip details' },
-              { icon: '📋', text: 'No way to show new clients your track record' },
-            ].map(({ icon, text }) => (
-              <div key={text} className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <p className="text-3xl mb-3">{icon}</p>
-                <p className="text-slate-300 font-medium leading-snug">{text}</p>
-              </div>
-            ))}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <svg className="mb-4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <p className="text-slate-300 font-medium leading-snug">Chasing clients for payments after every trip</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <svg className="mb-4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <p className="text-slate-300 font-medium leading-snug">Scrambling to remember fish counts and trip details</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <svg className="mb-4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <p className="text-slate-300 font-medium leading-snug">No way to show new clients your track record</p>
+            </div>
           </div>
           <p className="text-sky-400 font-bold text-xl mt-12">GuideStride fixes all of this.</p>
+
         </div>
       </section>
 
