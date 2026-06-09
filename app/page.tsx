@@ -48,10 +48,10 @@ export default function HomePage() {
             GuideStride gives independent fishing guides an easy, affordable way to manage clients, log trips, track payments, and grow their business — all from their phone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href={APP_URL} className="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors w-full sm:w-auto text-center">Start Free Trial</Link>
+            <Link href={APP_URL} className="bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors w-full sm:w-auto text-center">Get Early Access — Free During Beta</Link>
             <Link href="#features" className="text-slate-400 hover:text-white font-medium transition-colors">See how it works →</Link>
           </div>
-          <p className="text-slate-500 text-sm mt-4">No credit card required · $20/month after trial</p>
+          <p className="text-slate-500 text-sm mt-4">Free during beta · $20/month when billing launches</p>
         </div>
       </section>
 
@@ -191,14 +191,14 @@ export default function HomePage() {
               <span className="text-6xl font-black text-slate-900">$20</span>
               <span className="text-slate-400 text-lg mb-2">/month</span>
             </div>
-            <p className="text-slate-400 text-sm mb-8">per guide · billed monthly · cancel anytime</p>
+            <p className="text-slate-400 text-sm mb-8">Free during beta · $20/month when billing launches</p>
             <ul className="space-y-3 text-left mb-8">
               {['Unlimited clients', 'Unlimited trips', 'Live Trip Mode', 'Real-time water flow data', 'Financial analytics', 'Fish catch analytics', 'Works on iPhone, Android, and desktop', 'No contracts or setup fees'].map(item => (
                 <li key={item} className="flex items-center gap-3 text-slate-700 font-medium"><CheckIcon />{item}</li>
               ))}
             </ul>
-            <Link href={APP_URL} className="block w-full bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-4 rounded-2xl text-lg transition-colors text-center">Start Free Trial</Link>
-            <p className="text-slate-400 text-sm mt-3">No credit card required</p>
+            <Link href={APP_URL} className="block w-full bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold py-4 rounded-2xl text-lg transition-colors text-center">Get Early Access — Free During Beta</Link>
+            <p className="text-slate-400 text-sm mt-3">Free during beta · no credit card required</p>
           </div>
         </div>
       </section>
@@ -209,7 +209,7 @@ export default function HomePage() {
           <h2 className="text-3xl sm:text-5xl font-black mb-6 leading-tight">Ready to run a real guide business?</h2>
           <p className="text-slate-300 text-lg mb-10 max-w-xl mx-auto">Join fishing guides using GuideStride to book more trips, get paid faster, and prove their worth to every new client.</p>
           <Link href={APP_URL} className="inline-block bg-[#0ea5e9] hover:bg-sky-400 text-white font-bold px-10 py-5 rounded-2xl text-xl transition-colors">Get Started Free</Link>
-          <p className="text-slate-500 text-sm mt-4">No credit card required · $20/month after trial</p>
+          <p className="text-slate-500 text-sm mt-4">Free during beta · $20/month when billing launches</p>
         </div>
       </section>
 
