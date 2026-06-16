@@ -175,16 +175,30 @@ export default function HomePage() {
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Analytics</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Analytics That Help Sell Your Business</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">See your average fish per trip, best day of the week, top fishing spots, and year-over-year revenue growth. Real numbers that prove your value to every new client who asks.</p>
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Fishing Analytics</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Data That Proves Your Worth to Every New Client</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">GuideStride tracks every catch, location, and condition automatically. When a new client asks how you do — you have the numbers to back it up.</p>
                 <ul className="space-y-2">
-                  {['Fish caught by species, month, and time of day', 'Best day of the week and top locations', 'Revenue tracking and payment analytics', 'Year-over-year growth comparison'].map(item => (
+                  {['Fish caught by species, month, and time of day', 'Average fish per trip over time', 'Best days of the week and top locations', 'Catch trends to spot your most productive patterns'].map(item => (
                     <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Fishing & Financial Analytics" />
+              <Screenshot label="Fishing Analytics" />
+            </article>
+
+            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="lg:order-2">
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Financial Analytics</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Know Exactly Where Your Business Stands</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">See your revenue, collection rate, outstanding balances, and year-over-year growth — broken down by month. Run your guide business like the real business it is.</p>
+                <ul className="space-y-2">
+                  {['Total revenue and collection rate', 'Outstanding balances across all clients', 'Best month and year-over-year growth', 'Tips tracked separately from trip revenue'].map(item => (
+                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:order-1"><Screenshot label="Financial Analytics" /></div>
             </article>
 
           </div>
