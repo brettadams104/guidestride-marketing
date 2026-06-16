@@ -4,10 +4,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const SLIDES = [
-  { src: '/screen-fishlog.png',  label: 'Fish Log' },
-  { src: '/screen-weather.png',  label: 'Weather' },
-  { src: '/screen-photos.png',   label: 'Photos' },
-  { src: '/screen-notes.png',    label: 'Notes' },
+  { src: '/screen-fishlog.png',      label: 'Fish Log' },
+  { src: '/screen-weather.png',      label: 'Weather' },
+  { src: '/screen-photos.png',       label: 'Photos' },
+  { src: '/screen-notes.png',        label: 'Notes' },
+  { src: '/screen-tripcomplete.png', label: 'Trip Summary' },
 ]
 
 // iOS status bar in the screenshots is ~88px tall at 2x (images are 718px wide).
