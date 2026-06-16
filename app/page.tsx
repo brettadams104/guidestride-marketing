@@ -13,8 +13,16 @@ function CheckIcon() {
 
 function Screenshot({ label }: { label: string }) {
   return (
-    <div className="w-full aspect-video bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center border border-slate-200">
-      <p className="text-slate-400 text-sm font-medium">{label}</p>
+    <div className="w-full aspect-[9/16] max-w-[260px] mx-auto bg-[#0f1f35] rounded-[2.5rem] border-4 border-slate-700 shadow-2xl flex flex-col items-center justify-center gap-3 p-6">
+      <div className="w-10 h-10 bg-sky-500/20 rounded-xl flex items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+      </div>
+      <p className="text-slate-400 text-xs font-medium text-center leading-snug">{label}</p>
+      <div className="w-full space-y-2 mt-2">
+        <div className="h-2 bg-white/10 rounded-full w-3/4 mx-auto" />
+        <div className="h-2 bg-white/10 rounded-full w-1/2 mx-auto" />
+        <div className="h-2 bg-white/10 rounded-full w-2/3 mx-auto" />
+      </div>
     </div>
   )
 }
@@ -117,7 +125,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Live Trip Mode — coming soon" />
+              <Screenshot label="Live Trip Mode" />
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -131,7 +139,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="lg:order-1"><Screenshot label="Payment collection — coming soon" /></div>
+              <div className="lg:order-1"><Screenshot label="Payment Collection" /></div>
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -145,7 +153,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Client management — coming soon" />
+              <Screenshot label="Client Management" />
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -159,7 +167,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="lg:order-1"><Screenshot label="Water flows — coming soon" /></div>
+              <div className="lg:order-1"><Screenshot label="Water Flows & Conditions" /></div>
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -173,7 +181,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Analytics dashboard — coming soon" />
+              <Screenshot label="Fishing & Financial Analytics" />
             </article>
 
           </div>
@@ -223,7 +231,8 @@ export default function HomePage() {
           <p className="text-sm">© {new Date().getFullYear()} GuideStride. All rights reserved.</p>
           <div className="flex gap-6 text-sm">
             <Link href={`${APP_URL}/login`} className="hover:text-white transition-colors">Sign In</Link>
-            <Link href="mailto:hello@guidestride.com" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="mailto:contact@guidestride.com" className="hover:text-white transition-colors">Contact</Link>
+            <Link href={`${APP_URL}/privacy`} className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </footer>
