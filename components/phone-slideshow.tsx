@@ -20,6 +20,11 @@ const FINANCIAL_SLIDES: Slide[] = [
   { src: '/screen-fin-clients.png',    label: 'Top Clients' },
 ]
 
+const CLIENT_SLIDES: Slide[] = [
+  { src: '/screen-clients-list.png',   label: 'Client List' },
+  { src: '/screen-clients-detail.png', label: 'Client Detail' },
+]
+
 const FISHING_SLIDES: Slide[] = [
   { src: '/screen-fish-overview.png',  label: 'Overview' },
   { src: '/screen-fish-timeday.png',   label: 'Fish by Time of Day' },
@@ -125,4 +130,8 @@ export function FinancialSlideshow() {
 
 export function FishingSlideshow() {
   return <Slideshow slides={FISHING_SLIDES} />
+}
+
+export function ClientSlideshow() {
+  return <Slideshow slides={CLIENT_SLIDES} />
 }

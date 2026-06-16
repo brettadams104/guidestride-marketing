@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { PhoneSlideshow, FinancialSlideshow, FishingSlideshow } from '@/components/phone-slideshow'
+import { PhoneSlideshow, FinancialSlideshow, FishingSlideshow, ClientSlideshow } from '@/components/phone-slideshow'
 
 const APP_URL = 'https://app.guidestride.com'
 
@@ -156,7 +156,9 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Client Management" />
+              <div className="flex justify-center">
+                <ClientSlideshow />
+              </div>
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
