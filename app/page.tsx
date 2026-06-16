@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { PhoneSlideshow } from '@/components/phone-slideshow'
 
 const APP_URL = 'https://app.guidestride.com'
 
@@ -125,7 +126,9 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <Screenshot label="Live Trip Mode" />
+              <div className="flex justify-center">
+                <PhoneSlideshow />
+              </div>
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
