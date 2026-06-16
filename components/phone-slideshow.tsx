@@ -20,6 +20,14 @@ const FINANCIAL_SLIDES: Slide[] = [
   { src: '/screen-fin-clients.png',    label: 'Top Clients' },
 ]
 
+const FISHING_SLIDES: Slide[] = [
+  { src: '/screen-fish-overview.png',  label: 'Overview' },
+  { src: '/screen-fish-timeday.png',   label: 'Fish by Time of Day' },
+  { src: '/screen-fish-spots.png',     label: 'Top Fishing Spots' },
+  { src: '/screen-fish-species.png',   label: 'Species Breakdown' },
+  { src: '/screen-fish-moon.png',      label: 'Moon Phase & Pressure' },
+]
+
 const STATUS_BAR_CROP = 32
 
 function Slideshow({ slides }: { slides: Slide[] }) {
@@ -113,4 +121,8 @@ export function PhoneSlideshow() {
 
 export function FinancialSlideshow() {
   return <Slideshow slides={FINANCIAL_SLIDES} />
+}
+
+export function FishingSlideshow() {
+  return <Slideshow slides={FISHING_SLIDES} />
 }
