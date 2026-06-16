@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 const SLIDES = [
@@ -10,81 +10,94 @@ const SLIDES = [
   { src: '/screen-notes.png',    label: 'Notes' },
 ]
 
+// iOS status bar in the screenshots is ~88px tall at 2x (images are 718px wide).
+// At our display width of 260px, scale = 260/718 = 0.362, so status bar = ~32px.
+const STATUS_BAR_CROP = 32
+
 export function PhoneSlideshow() {
   const [current, setCurrent] = useState(0)
   const [fading, setFading] = useState(false)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
-        setCurrent(c => (c + 1) % SLIDES.length)
-        setFading(false)
-      }, 300)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
+  function go(i: number) {
+    if (i === current) return
+    setFading(true)
+    setTimeout(() => { setCurrent(i); setFading(false) }, 200)
+  }
+
+  function prev() { go((current - 1 + SLIDES.length) % SLIDES.length) }
+  function next() { go((current + 1) % SLIDES.length) }
 
   return (
     <div className="flex flex-col items-center gap-4">
-      {/* Phone frame */}
-      <div className="relative w-[260px] rounded-[2.5rem] border-4 border-slate-700 bg-black shadow-2xl overflow-hidden" style={{ aspectRatio: '9/19.5' }}>
 
-        {/* Fake status bar */}
-        <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 pt-2 pb-1" style={{ background: 'rgba(15,31,53,0.95)' }}>
-          <span className="text-white text-[10px] font-semibold">6:41 AM</span>
+      {/* Phone frame */}
+      <div
+        className="relative w-[260px] rounded-[2.5rem] border-[6px] border-slate-800 bg-black shadow-2xl overflow-hidden"
+        style={{ aspectRatio: '9/19.5' }}
+      >
+        {/* Fake status bar overlay */}
+        <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-4 py-1.5" style={{ background: '#0f1f35' }}>
+          <span className="text-white text-[9px] font-bold tracking-tight">6:41 AM</span>
           <div className="flex items-center gap-1">
-            {/* Signal */}
-            <svg width="14" height="10" viewBox="0 0 14 10" fill="white">
-              <rect x="0" y="7" width="2" height="3" rx="0.5"/>
-              <rect x="3" y="5" width="2" height="5" rx="0.5"/>
-              <rect x="6" y="3" width="2" height="7" rx="0.5"/>
-              <rect x="9" y="1" width="2" height="9" rx="0.5"/>
+            <svg width="13" height="9" viewBox="0 0 13 9" fill="white">
+              <rect x="0" y="6" width="2" height="3" rx="0.4"/>
+              <rect x="3" y="4" width="2" height="5" rx="0.4"/>
+              <rect x="6" y="2" width="2" height="7" rx="0.4"/>
+              <rect x="9" y="0" width="2" height="9" rx="0.4"/>
             </svg>
-            {/* WiFi */}
-            <svg width="12" height="10" viewBox="0 0 12 10" fill="white">
-              <path d="M6 8.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-              <path d="M2.5 6C3.8 4.8 4.9 4 6 4s2.2.8 3.5 2" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-              <path d="M0 3.5C2 1.5 4 0.5 6 0.5s4 1 6 3" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+              <circle cx="5.5" cy="8" r="1" fill="white"/>
+              <path d="M2 5.5C3.1 4.4 4.2 3.8 5.5 3.8s2.4.6 3.5 1.7" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
+              <path d="M0 3C1.8 1.2 3.5 0.3 5.5 0.3S9.2 1.2 11 3" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
             </svg>
-            {/* Battery 100% */}
-            <div className="flex items-center gap-0.5">
-              <div className="relative w-5 h-2.5 rounded-[2px] border border-white/80 flex items-center px-px">
-                <div className="h-full w-full bg-white rounded-[1px]" />
+            <div className="flex items-center">
+              <div className="w-[18px] h-[9px] rounded-[2px] border border-white/70 p-px flex">
+                <div className="flex-1 bg-white rounded-[1px]" />
               </div>
-              <div className="w-0.5 h-1.5 bg-white/60 rounded-r-sm" />
+              <div className="w-[2px] h-[5px] bg-white/50 rounded-r-sm ml-px" />
             </div>
           </div>
         </div>
 
-        {/* Screenshot — crop status bar by shifting up */}
+        {/* Screenshot — shifted up to hide phone's own status bar */}
         <div
-          className="absolute inset-0 top-[22px] transition-opacity duration-300"
-          style={{ opacity: fading ? 0 : 1 }}
+          className="absolute inset-0 transition-opacity duration-200"
+          style={{ opacity: fading ? 0 : 1, top: 22 }}
         >
-          <div className="relative w-full h-full overflow-hidden">
+          <div
+            className="relative w-full overflow-hidden"
+            style={{ height: `calc(100% + ${STATUS_BAR_CROP}px)`, marginTop: -STATUS_BAR_CROP }}
+          >
             <Image
               src={SLIDES[current].src}
               alt={SLIDES[current].label}
               fill
               className="object-cover object-top"
-              style={{ marginTop: '-44px' }}
               priority
             />
           </div>
         </div>
+
+        {/* Left/right tap zones */}
+        <button onClick={prev} className="absolute left-0 top-0 bottom-0 w-1/2 z-30 cursor-w-resize" aria-label="Previous" />
+        <button onClick={next} className="absolute right-0 top-0 bottom-0 w-1/2 z-30 cursor-e-resize" aria-label="Next" />
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex gap-2">
-        {SLIDES.map((s, i) => (
-          <button
-            key={i}
-            onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false) }, 300) }}
-            className={`rounded-full transition-all duration-300 ${i === current ? 'w-5 h-2 bg-sky-500' : 'w-2 h-2 bg-slate-300'}`}
-          />
-        ))}
+      {/* Dot indicators + label */}
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex gap-2">
+          {SLIDES.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              aria-label={s.label}
+              className={`rounded-full transition-all duration-300 ${i === current ? 'w-5 h-2 bg-sky-500' : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'}`}
+            />
+          ))}
+        </div>
+        <p className="text-xs text-slate-400 font-medium">{SLIDES[current].label}</p>
       </div>
+
     </div>
   )
 }
