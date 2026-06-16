@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { PhoneSlideshow } from '@/components/phone-slideshow'
+import { PhoneSlideshow, FinancialSlideshow } from '@/components/phone-slideshow'
 
 const APP_URL = 'https://app.guidestride.com'
 
@@ -198,7 +198,9 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="lg:order-1"><Screenshot label="Financial Analytics" /></div>
+              <div className="lg:order-1 flex justify-center">
+                <FinancialSlideshow />
+              </div>
             </article>
 
           </div>

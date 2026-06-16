@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-const SLIDES = [
+interface Slide { src: string; label: string }
+
+const TRIP_MODE_SLIDES: Slide[] = [
   { src: '/screen-fishlog.png',      label: 'Fish Log' },
   { src: '/screen-weather.png',      label: 'Weather' },
   { src: '/screen-photos.png',       label: 'Photos' },
@@ -11,11 +13,16 @@ const SLIDES = [
   { src: '/screen-tripcomplete.png', label: 'Trip Summary' },
 ]
 
-// iOS status bar in the screenshots is ~88px tall at 2x (images are 718px wide).
-// At our display width of 260px, scale = 260/718 = 0.362, so status bar = ~32px.
+const FINANCIAL_SLIDES: Slide[] = [
+  { src: '/screen-fin-overview.png',   label: 'Overview' },
+  { src: '/screen-fin-revenue.png',    label: 'Monthly Revenue' },
+  { src: '/screen-fin-breakdown.png',  label: 'Collected vs Outstanding' },
+  { src: '/screen-fin-clients.png',    label: 'Top Clients' },
+]
+
 const STATUS_BAR_CROP = 32
 
-export function PhoneSlideshow() {
+function Slideshow({ slides }: { slides: Slide[] }) {
   const [current, setCurrent] = useState(0)
   const [fading, setFading] = useState(false)
 
@@ -25,18 +32,16 @@ export function PhoneSlideshow() {
     setTimeout(() => { setCurrent(i); setFading(false) }, 200)
   }
 
-  function prev() { go((current - 1 + SLIDES.length) % SLIDES.length) }
-  function next() { go((current + 1) % SLIDES.length) }
+  function prev() { go((current - 1 + slides.length) % slides.length) }
+  function next() { go((current + 1) % slides.length) }
 
   return (
     <div className="flex flex-col items-center gap-4">
-
-      {/* Phone frame */}
       <div
         className="relative w-[260px] rounded-[2.5rem] border-[6px] border-slate-800 bg-black shadow-2xl overflow-hidden"
         style={{ aspectRatio: '9/19.5' }}
       >
-        {/* Fake status bar overlay */}
+        {/* Fake status bar */}
         <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-4 py-1.5" style={{ background: '#0f1f35' }}>
           <span className="text-white text-[9px] font-bold tracking-tight">6:41 AM</span>
           <div className="flex items-center gap-1">
@@ -60,7 +65,7 @@ export function PhoneSlideshow() {
           </div>
         </div>
 
-        {/* Screenshot — shifted up to hide phone's own status bar */}
+        {/* Screenshot */}
         <div
           className="absolute inset-0 transition-opacity duration-200"
           style={{ opacity: fading ? 0 : 1, top: 22 }}
@@ -70,8 +75,8 @@ export function PhoneSlideshow() {
             style={{ height: `calc(100% + ${STATUS_BAR_CROP}px)`, marginTop: -STATUS_BAR_CROP }}
           >
             <Image
-              src={SLIDES[current].src}
-              alt={SLIDES[current].label}
+              src={slides[current].src}
+              alt={slides[current].label}
               fill
               className="object-cover object-top"
               priority
@@ -79,15 +84,15 @@ export function PhoneSlideshow() {
           </div>
         </div>
 
-        {/* Left/right tap zones */}
+        {/* Tap zones */}
         <button onClick={prev} className="absolute left-0 top-0 bottom-0 w-1/2 z-30 cursor-w-resize" aria-label="Previous" />
         <button onClick={next} className="absolute right-0 top-0 bottom-0 w-1/2 z-30 cursor-e-resize" aria-label="Next" />
       </div>
 
-      {/* Dot indicators + label */}
+      {/* Dots + label */}
       <div className="flex flex-col items-center gap-2">
         <div className="flex gap-2">
-          {SLIDES.map((s, i) => (
+          {slides.map((s, i) => (
             <button
               key={i}
               onClick={() => go(i)}
@@ -96,9 +101,16 @@ export function PhoneSlideshow() {
             />
           ))}
         </div>
-        <p className="text-xs text-slate-400 font-medium">{SLIDES[current].label}</p>
+        <p className="text-xs text-slate-400 font-medium">{slides[current].label}</p>
       </div>
-
     </div>
   )
+}
+
+export function PhoneSlideshow() {
+  return <Slideshow slides={TRIP_MODE_SLIDES} />
+}
+
+export function FinancialSlideshow() {
+  return <Slideshow slides={FINANCIAL_SLIDES} />
 }
