@@ -115,62 +115,26 @@ export default function HomePage() {
           </div>
           <div className="space-y-24">
 
+            {/* 1 — Schedule Management: text LEFT, image RIGHT */}
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Trip Mode</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Log Everything on the Water</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">Start a trip, log fish species, size, weight, and lure — right from your phone while you&apos;re out there. No more trying to remember it all when you get back to the dock.</p>
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Schedule Management</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Ditch the Paper Calendar for Good</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">If you&apos;re still writing trips on a wall calendar or in a notebook, GuideStride replaces all of it — and never loses a booking, double-books a day, or leaves you guessing what&apos;s coming up this week.</p>
                 <ul className="space-y-2">
-                  {['Log catches in real time', 'Track weather and conditions automatically', 'Add photos from the water', 'Notes tab for quick observations'].map(item => (
+                  {['See your full month at a glance on the dashboard', 'Schedule trips in seconds — date, client, location, package', 'Reschedule or cancel with one tap', 'Upcoming trips always front and center', 'Never double-book or forget a client again'].map(item => (
                     <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
                   ))}
                 </ul>
               </div>
               <div className="flex justify-center">
-                <PhoneSlideshow />
-              </div>
-            </article>
-
-            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-2">
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Payments</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Get Paid Without the Awkward Follow-Up</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">Track what every client owes, collect payment at the end of the trip, and see your outstanding balances at a glance. Cash, card, Venmo, Zelle — however your clients pay.</p>
-                <ul className="space-y-2">
-                  {['Track deposits and remaining balances', 'Collect payment from the trip summary', 'See all outstanding balances in one view', 'Full financial analytics by month and year'].map(item => (
-                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="lg:order-1 flex justify-center">
-                <PaymentSlideshow />
-              </div>
-            </article>
-
-            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-2">
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Schedule Management</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Ditch the Paper Calendar for Good</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">If you&apos;re still writing trips on a wall calendar or in a notebook, GuideStride replaces all of it — and never loses a booking, double-books a day, or leaves you guessing what&apos;s coming up this week.</p>
-                <ul className="space-y-2">
-                  {[
-                    'See your full month at a glance on the dashboard',
-                    'Schedule trips in seconds — date, client, location, package',
-                    'Reschedule or cancel with one tap',
-                    'Upcoming trips always front and center',
-                    'Never double-book or forget a client again',
-                  ].map(item => (
-                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="lg:order-1 flex justify-center">
                 <Screenshot label="Schedule & Dashboard" />
               </div>
             </article>
 
+            {/* 2 — Client Management: text RIGHT, image LEFT */}
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="lg:order-2">
                 <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Client Management</p>
                 <h3 className="text-2xl sm:text-3xl font-black mb-4">Your Clients, All in One Place</h3>
                 <p className="text-slate-500 text-lg leading-relaxed mb-6">Every client&apos;s contact info, trip history, and outstanding balance — organized and always with you. Build real relationships and know exactly who you&apos;ve fished with and when.</p>
@@ -180,45 +144,48 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="flex justify-center">
+              <div className="lg:order-1 flex justify-center">
                 <ClientSlideshow />
               </div>
             </article>
 
+            {/* 3 — Payments: text LEFT, image RIGHT */}
+            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Payments</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Get Paid Without the Awkward Follow-Up</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">Track what every client owes, collect payment at the end of the trip, and see your outstanding balances at a glance. Cash, card, Venmo, Zelle — however your clients pay.</p>
+                <ul className="space-y-2">
+                  {['Track deposits and remaining balances', 'Collect payment from the trip summary', 'See all outstanding balances in one view', 'Full financial analytics by month and year'].map(item => (
+                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex justify-center">
+                <PaymentSlideshow />
+              </div>
+            </article>
+
+            {/* 4 — Trip Mode: text RIGHT, image LEFT */}
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="lg:order-2">
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Water Flows</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Know Your Water Before You Launch</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">Check live USGS river flow data for your favorite spots before every trip. Never show up to blown-out water again. Save your key gauges for quick access.</p>
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Trip Mode</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Log Everything on the Water</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">Start a trip, log fish species, size, weight, and lure — right from your phone while you&apos;re out there. No more trying to remember it all when you get back to the dock.</p>
                 <ul className="space-y-2">
-                  {['Real-time streamflow in CFS', '7-day trend charts', 'Save your favorite gauges', 'Search any river or stream in the US'].map(item => (
+                  {['Log catches in real time', 'Track weather and conditions automatically', 'Add photos from the water', 'Notes tab for quick observations'].map(item => (
                     <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
                   ))}
                 </ul>
               </div>
               <div className="lg:order-1 flex justify-center">
-                <FlowsSlideshow />
+                <PhoneSlideshow />
               </div>
             </article>
 
+            {/* 5 — Financial Analytics: text LEFT, image RIGHT */}
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Fishing Analytics</p>
-                <h3 className="text-2xl sm:text-3xl font-black mb-4">Data That Proves Your Worth to Every New Client</h3>
-                <p className="text-slate-500 text-lg leading-relaxed mb-6">GuideStride tracks every catch, location, and condition automatically. When a new client asks how you do — you have the numbers to back it up.</p>
-                <ul className="space-y-2">
-                  {['Fish caught by species, month, and time of day', 'Average fish per trip over time', 'Best days of the week and top locations', 'Catch trends to spot your most productive patterns'].map(item => (
-                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex justify-center">
-                <FishingSlideshow />
-              </div>
-            </article>
-
-            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-2">
                 <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Financial Analytics</p>
                 <h3 className="text-2xl sm:text-3xl font-black mb-4">Know Exactly Where Your Business Stands</h3>
                 <p className="text-slate-500 text-lg leading-relaxed mb-6">See your revenue, collection rate, outstanding balances, and year-over-year growth — broken down by month. Run your guide business like the real business it is.</p>
@@ -228,8 +195,42 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="lg:order-1 flex justify-center">
+              <div className="flex justify-center">
                 <FinancialSlideshow />
+              </div>
+            </article>
+
+            {/* 6 — Fishing Analytics: text RIGHT, image LEFT */}
+            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="lg:order-2">
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Fishing Analytics</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Data That Proves Your Worth to Every New Client</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">GuideStride tracks every catch, location, and condition automatically. When a new client asks how you do — you have the numbers to back it up.</p>
+                <ul className="space-y-2">
+                  {['Fish caught by species, month, and time of day', 'Average fish per trip over time', 'Best days of the week and top locations', 'Catch trends to spot your most productive patterns'].map(item => (
+                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:order-1 flex justify-center">
+                <FishingSlideshow />
+              </div>
+            </article>
+
+            {/* 7 — Water Flows: text LEFT, image RIGHT */}
+            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Water Flows</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Know Your Water Before You Launch</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">Check live USGS river flow data for your favorite spots before every trip. Never show up to blown-out water again. Save your key gauges for quick access.</p>
+                <ul className="space-y-2">
+                  {['Real-time streamflow in CFS', '7-day trend charts', 'Save your favorite gauges', 'Search any river or stream in the US'].map(item => (
+                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex justify-center">
+                <FlowsSlideshow />
               </div>
             </article>
 
