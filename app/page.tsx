@@ -148,6 +148,28 @@ export default function HomePage() {
             </article>
 
             <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="lg:order-2">
+                <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Schedule Management</p>
+                <h3 className="text-2xl sm:text-3xl font-black mb-4">Ditch the Paper Calendar for Good</h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-6">If you&apos;re still writing trips on a wall calendar or in a notebook, GuideStride replaces all of it — and never loses a booking, double-books a day, or leaves you guessing what&apos;s coming up this week.</p>
+                <ul className="space-y-2">
+                  {[
+                    'See your full month at a glance on the dashboard',
+                    'Schedule trips in seconds — date, client, location, package',
+                    'Reschedule or cancel with one tap',
+                    'Upcoming trips always front and center',
+                    'Never double-book or forget a client again',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-2 text-slate-700 font-medium"><CheckIcon />{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:order-1 flex justify-center">
+                <Screenshot label="Schedule & Dashboard" />
+              </div>
+            </article>
+
+            <article className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-3">Client Management</p>
                 <h3 className="text-2xl sm:text-3xl font-black mb-4">Your Clients, All in One Place</h3>
