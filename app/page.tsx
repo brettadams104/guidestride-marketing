@@ -278,7 +278,10 @@ export default function HomePage() {
             <Image src="/logo.png" alt="GuideStride" width={28} height={28} className="rounded-md" />
             <span className="text-white font-bold">GuideStride</span>
           </div>
-          <p className="text-sm">© {new Date().getFullYear()} GuideStride. All rights reserved.</p>
+          <div className="text-center text-sm space-y-0.5">
+            <p>© {new Date().getFullYear()} Ethical Edge Inc. All rights reserved.</p>
+            <p className="text-slate-500 text-xs">GuideStride is a product of Ethical Edge Inc.</p>
+          </div>
           <div className="flex gap-6 text-sm">
             <Link href={`${APP_URL}/login`} className="hover:text-white transition-colors">Sign In</Link>
             <Link href="mailto:contact@guidestride.com" className="hover:text-white transition-colors">Contact</Link>
