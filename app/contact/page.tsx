@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Contact Us — GuideStride',
-  description: 'Get in touch with the GuideStride team. We're here to help.',
+  description: 'Get in touch with the GuideStride team. We\'re here to help.',
 }
 
 export default function ContactPage() {
