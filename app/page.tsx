@@ -284,7 +284,7 @@ export default function HomePage() {
           </div>
           <div className="flex gap-6 text-sm">
             <Link href={`${APP_URL}/login`} className="hover:text-white transition-colors">Sign In</Link>
-            <Link href="mailto:contact@guidestride.com" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
             <Link href={`${APP_URL}/privacy`} className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
